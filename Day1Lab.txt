@@ -1,3 +1,15 @@
+Lab4 - package main
+       import (
+              "fmt"
+            "os"
+              )
+       func main(){
+              fmt.Println("Args = " , os.Args)
+       }
+       
+       Modify main method to print length of array
+       Write a for loop to print String and length from array
+       
 Lab3 - Write a function for swapping two string values 
        Write a function to accept String and return length of String
 Lab2 - 
