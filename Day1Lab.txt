@@ -1,3 +1,35 @@
+Lab3 - Write a function for swapping two string values 
+       Write a function to accept String and return length of String
+Lab2 - 
+        package main
+
+        import "fmt"
+
+        func main() {
+                fmt.Println("Invoke Function")
+                hello()
+                sum := add(10, 100)
+                fmt.Println("Sum =  ", sum)
+                sum = add(110, 200)
+                fmt.Println("Sum =  ", sum)
+                add, sub := calc(110, 200)
+                fmt.Println("add =  ", add, " , Sub = " , sub)
+
+        }
+        func hello() {
+                fmt.Println("Hello invoked ")
+        }
+        func add(x, y int) int {
+                fmt.Println("Add invoked with ", x, " and ", y)
+                //fmt.Println(" Sum = ", (x + y))
+                return x + y
+        }
+        func calc(x, y int) (int, int) {
+                fmt.Println("Calc invoked with ", x, " and ", y)
+                return x + y, x - y
+        }
+
+
 Lab1 - Create Lab1.go 
         package demo
         func main(){
