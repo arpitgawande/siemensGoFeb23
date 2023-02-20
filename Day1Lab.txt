@@ -1,3 +1,9 @@
+Lab 12 - Demo4/Lab5
+      EmpManger -> slice 
+            add(Emp)
+            delete(int empno)
+            print
+            
 Lab 11 - Demo3/Lab4
               Create a struct Emp , 
                      empno int, ename string ,salary int
