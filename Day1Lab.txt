@@ -1,3 +1,8 @@
+Lab13 - Lab6 file1 file2 
+            copy content of file1 to file2
+        Lab7 file1 file2 output
+            copy file1 to output and append content of file2 to output
+            
 Lab 12 - Demo4/Lab5
       EmpManger -> slice 
             add(Emp)
