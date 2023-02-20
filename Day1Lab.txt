@@ -1,3 +1,39 @@
+Lab 11 - Demo3/Lab4
+              Create a struct Emp , 
+                     empno int, ename string ,salary int
+              Write two function with Emp as receiver 
+                     incrSalary 
+                     print
+                     
+Lab 10 - Demo2/Lab3
+       package main
+       import "fmt"
+       type Point struct {
+              x int
+              y int
+       }
+       func incr(point *Point){
+              point.x +=10
+              point.y +=10
+              fmt.Println("in incr" , point)
+       }
+       func (point *Point) incr2(x, y int){
+              point.x +=x
+              point.y +=y
+              fmt.Println("in incr222" , point)
+       }
+       func main(){
+              v1 := Point{10,20}
+              fmt.Println(v1)
+              v1 = Point{y:10,x:20}
+              fmt.Println(v1)
+              incr(&v1)
+              fmt.Println(v1)
+              v1.incr2(2,6)
+              fmt.Println(v1)
+
+       }
+
 Lab 9 - Create slice of 5 items, add dynamically, sort and print. (check impact of cap )
 Lab 8 - Demo2/Lab2 
        package main
