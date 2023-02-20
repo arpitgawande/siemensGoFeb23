@@ -1,3 +1,16 @@
+Lab5 - Multiple files
+       Create Helper.go 
+              package main
+              import "fmt"
+              func add(x, y int) int {
+                     fmt.Println("Add invoked with ", x, " and ", y)
+                     //fmt.Println(" Sum = ", (x + y))
+                     return x + y
+              }
+        Create Lab5.go to invoke add method
+        cmd>go run Lab5.go -> error
+        cmd>go run Lab5.go Helper.go
+        
 Lab4 - package main
        import (
               "fmt"
