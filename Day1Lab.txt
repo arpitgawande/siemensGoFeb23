@@ -1,3 +1,55 @@
+Lab 9 - Create slice of 5 items, add dynamically, sort and print. (check impact of cap )
+Lab 8 - Demo2/Lab2 
+       package main
+       import (
+              "fmt"
+
+       )
+
+       func main(){
+              //primes := []int{20, 31, 55, 77, 1, 13}
+              //fmt.Println(primes)
+              //var s []int = primes[1:4]
+              s := make([]int, 10) 
+              s[0] = 200 
+              fmt.Println(s)
+
+              fmt.Println(s  , ",  len = " , len(s) , ", cap = " , cap(s))
+              //s[3] = 1000
+              s = append(s,4)
+              fmt.Println(s  , ",  len = " , len(s) , ", cap = " , cap(s))
+              s = append(s,500)
+              fmt.Println(s  , ",  len = " , len(s) , ", cap = " , cap(s))
+              s = append(s,6000)
+              fmt.Println(s  , ",  len = " , len(s) , ", cap = " , cap(s))
+              s = append(s,700)
+              fmt.Println(s  , ",  len = " , len(s) , ", cap = " , cap(s))
+              //fmt.Println(primes)
+
+       }
+
+Lab7 - Slice (Demo2/Lab1.go)
+       package main
+       import (
+              "fmt"
+       )
+
+       func main(){
+              primes := []int{20, 31, 55, 77, 1, 13}
+              fmt.Println(primes)
+              //sort.Sort(sort.IntSlice(primes))
+              //fmt.Println(primes)
+              var s []int = primes[1:4]
+              fmt.Println(s)
+              s[0] = 1000
+              fmt.Println(s)
+              s = primes[:3]
+              fmt.Println(s)
+              s = primes[3:5]
+              fmt.Println(s)
+       }
+
+
 Lab6 - 
        package main
        import "fmt"
