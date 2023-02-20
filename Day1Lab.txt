@@ -1,0 +1,9 @@
+Lab1 - Create Lab1.go 
+        package demo
+        func main(){
+          fmt.Println("Hello World !!")
+        }
+        cmd>go build Lab1.go 
+          Obseve exe file
+        cmd>go run Lab1.go
+        cmd>
