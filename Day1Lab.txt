@@ -1,3 +1,19 @@
+Lab6 - 
+       package main
+       import "fmt"
+
+       func main(){
+              fmt.Println("Enter your name")
+              str := "aa"
+              x, err:= fmt.Scanln(&str)
+              fmt.Println("x = " , x , ", Error = ", err)
+              fmt.Println("Hello, " , str);
+       }
+
+      Accept a number from user and print Fibonacci series till that number
+      Accept 5 strings from user and sort and print the same
+
+
 Lab5 - Multiple files
        Create Helper.go 
               package main
