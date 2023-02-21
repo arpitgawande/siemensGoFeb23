@@ -1,0 +1,12 @@
+Lab1 - closures
+      package main
+      import "fmt"
+      func adder() func(int) int {
+        sum := 0
+        fmt.Println("Adder invoked and current sum = ", sum)
+        return func(x int) int {
+          fmt.Println("in return function and current value of sum = ", sum)
+          sum += x
+          return sum
+        }
+      }
