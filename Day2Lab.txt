@@ -1,6 +1,42 @@
 Lab8 - Connect to https://reqres.in/api/users/2 download json, create object and just show email address for user 2
            http . get
            encoding/json -> unmarshal
+           package main
+           import (
+                      "fmt"	
+                      "net/http"	
+                      "io/ioutil"
+                      "encoding/json"
+           )
+           type UserInfo struct {
+                      Data struct {
+                                 ID        int    `json:"id"`
+                                 Email     string `json:"email"`
+                                 FirstName string `json:"first_name"`
+                                 LastName  string `json:"last_name"`
+                                 Avatar    string `json:"avatar"`
+                      } `json:"data"`
+                      Support struct {
+                                 URL  string `json:"url"`
+                                 Text string `json:"text"`
+                      } `json:"support"`
+           }
+           func main() { 
+                      url :="https://reqres.in/api/users/2"    
+                      var client = http.Client{} 
+                      resp, err := client.Get(url); 
+                      if err != nil {	
+                                 fmt.Println("Error " );
+                      } else {
+                                 fmt.Println("resp" , resp);	
+                                 data, _ := ioutil.ReadAll(resp.Body)
+                                 fmt.Println("\n\n\nbody " ,string(data)) 
+                                 obj :=UserInfo{}
+                                 json.Unmarshal(data, &obj)
+                                 fmt.Println("Object Details - email " + obj.Data.Email)
+                      }
+           }
+
 
 Lab7 - external module/lib download
       create Lab1.go
