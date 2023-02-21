@@ -1,3 +1,6 @@
+Lab 10 - Dynamodb
+           https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/dynamo-example-list-tables.html
+           
 Lab 9 - Db connection (in demo3 folder)
            create module
            Create Lab1.go
