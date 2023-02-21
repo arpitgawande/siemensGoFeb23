@@ -1,4 +1,55 @@
+Lab4 - Panic  - Recover
+      package main
+      import "fmt"
+      func main() {
+          f()
+            defer func() {
+              if r := recover(); r != nil {
+                  fmt.Println("Recovered in f", r)
+              }
+          }()
+          fmt.Println("Returned normally from f.")
+      }
+      func f() {
+
+            fmt.Println("Calling g.")
+            g(1)
+          fmt.Println("Returned normally from g.")
+
+
+      }
+      func g(i int) {
+          if i > 3 {
+              fmt.Println("Panicking!")
+              panic("Problem")
+          }
+          defer fmt.Println("Defer in g", i)
+          fmt.Println("Printing in g", i)
+          g(i + 1)
+      }
+
+
 Lab3 - writer a for loop of 5 iterations and write a defer line inside
+      package main
+      import "fmt"
+      func main(){
+            test1()
+            test2()
+      }
+      func test1(){
+            i := 10;
+            defer fmt.Println("world" , i)
+            i = 20;
+            fmt.Println("hello" , i)
+            }
+      func test2(){
+            fmt.Println("counting")
+            for i := 0; i < 10; i++ {
+                  defer fmt.Println(i)
+            }
+            fmt.Println("done")
+
+      }
 Lab2 - defer
       package main
       import "fmt"
