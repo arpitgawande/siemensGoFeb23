@@ -1,3 +1,27 @@
+Lab 9 - Db connection (in demo3 folder)
+           create module
+           Create Lab1.go
+                      package main
+                      import (
+                                 "database/sql"
+                                 "time"
+                                 "fmt"
+                                 _ "github.com/go-sql-driver/mysql"
+                      )
+
+                      func main(){
+                      db, err := sql.Open("mysql", "admin:MyPassword@database-1.cxmg6nnxkwnv.us-east-1.rds.amazonaws.com/mydb")
+                      if err != nil {
+                                 panic(err)
+                      }
+                      fmt.Println("Connection Established " , db )
+                      // See "Important settings" section.
+                      db.SetConnMaxLifetime(time.Minute * 3)
+                      db.SetMaxOpenConns(10)
+                      db.SetMaxIdleConns(10)
+                      rows, err1 := db.Query("insert into emp values (11,'AAA',11000)")
+
+                      }
 Lab8 - Connect to https://reqres.in/api/users/2 download json, create object and just show email address for user 2
            http . get
            encoding/json -> unmarshal
