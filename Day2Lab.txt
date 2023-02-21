@@ -1,3 +1,29 @@
+Lab5 - interface
+      package main
+      import (
+            "fmt"
+            "strconv"
+      )
+      type tostr interface {
+            Convert() string 
+      }
+
+      type Emp struct {
+            empno int
+            ename string
+      }
+      func (e Emp) Convert() string {
+           str :="Emp Details[Empno = "+ strconv.Itoa(e.empno)+ " , Name = " + e.ename +"]" ;
+           return str
+      }
+      func main(){
+            var a tostr;
+            e:= Emp{10,"aaa"}
+            fmt.Println(e)
+            a = e
+            fmt.Println(a.Convert())
+      }
+
 Lab4 - Panic  - Recover
       package main
       import "fmt"
