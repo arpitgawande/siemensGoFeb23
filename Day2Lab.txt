@@ -1,3 +1,40 @@
+Lab 13 - Demo4/lab5
+	package main
+	import (
+		"fmt"
+		"time"
+		"sync"
+	)
+
+	func main(){
+		fmt.Println("Starting of main")
+		var wg sync.WaitGroup
+		wg.Add(2)
+		go func(){
+			print("h")
+			fmt.Println("print h finished execution")
+			wg.Done()
+		} ()
+		go func(){
+			print("w")
+			fmt.Println("print w finished execution")
+			wg.Done()
+		} ()
+		fmt.Println("Should wait for both the threds to get over")
+		wg.Wait()
+		fmt.Println("\n\n\nEnding of main")
+		for {}
+	}
+
+	func print(str string){
+		for i:=1;i<50;i++{
+			fmt.Print(str , ":" , i , "   ")
+			if i % 5 == 0{
+				time.Sleep(1 * time.Second)
+			}
+		}
+	}
+
 Lab12 - Demo4/Lab3 - GoRoutines
 	package main
 	import (
