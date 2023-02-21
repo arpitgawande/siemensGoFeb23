@@ -1,24 +1,30 @@
-//create table emp (empno numeric primary key, ename varchar(20), salary numeric)
-package main
-import (
-	"database/sql"
-	"fmt"
-	_ "github.com/go-sql-driver/mysql"
-)
+Lab12 - Demo4/Lab3 - GoRoutines
+	package main
+	import (
+		"fmt"
+		"time"
+	)
 
-func main(){
-db, err := sql.Open("mysql", "admin:MyPassword@tcp(database-1.cxmg6nnxkwnv.us-east-1.rds.amazonaws.com:3306)/mydb")
-if err != nil {
-	panic(err)
-}
-fmt.Println("Connection Established " , db )
-rows, err := db.Query("insert into emp values (11,'AAA',11000)")
-fmt.Println("Inserted ")
-if err != nil {
-	panic(err)
-}
-}
---------------
+	func main(){
+		fmt.Println("Starting of main")
+		ch := make(chan int)
+		fmt.Println("ch", ch)
+		go read()
+		go write(ch)
+		time.Sleep(10*time.Second)
+		fmt.Println("Main over...")
+	}
+	func read(){
+		fmt.Println("Reading Started")
+	}
+	func write(ch chan int){
+		fmt.Println("Writing Started")
+		ch <- 10  
+		fmt.Println("Writing Completed")
+	}
+Lab11 - Demo4/Lab1 + Lab2
+	Basic go routine
+
 Lab 10 - Dynamodb
            https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/dynamo-example-list-tables.html
            
