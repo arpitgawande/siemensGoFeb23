@@ -1,3 +1,29 @@
+Lab3 - Emp -> empno, ename, salary
+        package main
+        import(
+          "fmt"
+        )
+        type Emp struct {
+          Empno  int 
+          Ename  string 
+          Salary int 
+        }
+        func (emp Emp) print(){
+          fmt.Println("Print EmpNo = " , emp.Empno , " , Ename =" , emp.Ename + ", Salary = " , emp.Salary)
+        }
+        type EmpManager struct {
+          emparr []Emp 
+        }
+        func (empmgr *EmpManager) add(e1 Emp){
+          empmgr.emparr = append(empmgr.emparr, e1)
+        }
+
+
+      REST API -> 
+                  Slice of Emp (EmpManager)
+                  post -> add Emp to slice
+                  get -> return Emps as JSON
+
 Lab2 - https://pkg.go.dev/testing#hdr-Benchmarks
 Lab1 - 
   Write Lab1.go
