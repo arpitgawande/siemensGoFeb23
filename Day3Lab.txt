@@ -33,6 +33,9 @@ Lab4  - ProjectWithLib -  https://go.dev/doc/tutorial/create-module
         create clientweb\main.go
         
         
+        cmd\ProjectWithLib\clientweb>go mod edit -replace siemensdemo/dblib=../dblib
+        check errors and rectify
+        
 Lab3 - 
         Create Lab1.go
        package main
