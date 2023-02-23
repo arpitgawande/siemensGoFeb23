@@ -1,7 +1,7 @@
 Lab4  - ProjectWithLib -  https://go.dev/doc/tutorial/create-module
         cmd\ProjectWithLib>mkdir dblib
         cmd\ProjectWithLib>cd dblib
-        cmd\ProjectWithLib>go mod init siemensdemo/dblib
+        cmd\ProjectWithLib\dblib>go mod init siemensdemo/dblib
         create dblib\EmpManager.go
                 package mylib
 
@@ -26,8 +26,13 @@ Lab4  - ProjectWithLib -  https://go.dev/doc/tutorial/create-module
                         empmgr.emparr = append(empmgr.emparr, e1)
                 }
         
-        cmd\ProjectWithLib>go mod tidy
-
+        cmd\ProjectWithLib\dblib>go mod tidy
+        cmd\ProjectWithLib>md clientweb
+        cmd\ProjectWithLib>cd clientweb
+        cmd\ProjectWithLib\clientweb> go mod init siemensdemo/clientweb
+        create clientweb\main.go
+        
+        
 Lab3 - 
         Create Lab1.go
        package main
