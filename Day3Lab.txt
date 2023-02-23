@@ -1,0 +1,38 @@
+Lab1 - 
+  Write Lab1.go
+    package main
+    import "fmt"
+    func add(a,b int) int {
+      fmt.Println("Add invoked with " , a, ", ", b)
+      return a+a
+    }
+    func main(){
+      fmt.Println("Main " , add(10,40))
+    }
+    
+  Write Lab1_test.go
+    package main
+
+    import "testing"
+
+    func TestAdd2(t *testing.T) {
+        got := add(10,100)
+        if got != 110 {
+            t.Errorf("Add(10,100) = %d; want 110", got)
+        }
+    }
+  cmd>go test Lab1_test.go Lab1.go
+  cmd>go test Lab1_test.go Lab1.go -v
+  cmd>go test Lab1_test.go Lab1.go -cover
+  cmd>go test Lab1_test.go Lab1.go -v -coverprofile tmp.txt
+  cmd>go tool cover -html=tmp.txt -o tmp.html
+  
+  write divide method to accept two strings, convert to int and return divide
+    two exceptions -> AtoI giving error or zero divide
+  Write three test cases
+    1. passing a string args with invalid number should give error
+    2. pass second arg zero should return error
+    3. correct exe
+  
+  
+  
