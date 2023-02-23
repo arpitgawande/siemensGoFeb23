@@ -1,4 +1,22 @@
-Lab3 - Emp -> empno, ename, salary
+Lab3 - 
+        Create Lab1.go
+                package main
+                import(
+                        "fmt"
+                )
+                func main(){
+
+                http.HandleFunc("/emps", func(w http.ResponseWriter, r *http.Request) {
+                        Convert emparr to json
+                        write string to w
+                        //fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
+                })
+
+                log.Fatal(http.ListenAndServe(":8080", nil))
+
+                }
+        
+        EmpManager.go
         package main
         import(
           "fmt"
