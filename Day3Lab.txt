@@ -1,3 +1,6 @@
+Lab5 - ProjectWithLib -> replace EmpManager to connect to MySQL
+
+
 Lab4  - ProjectWithLib -  https://go.dev/doc/tutorial/create-module
         cmd\ProjectWithLib>mkdir dblib
         cmd\ProjectWithLib>cd dblib
