@@ -1,4 +1,45 @@
 Lab5 - ProjectWithLib -> replace EmpManager to connect to MySQL
+        database-1.cxmg6nnxkwnv.us-east-1.rds.amazonaws.com
+        database-1
+        admin
+        MyPassword
+        
+        func connect() *sql.DB {
+                db, err := sql.Open("mysql", "admin:MyPassword@tcp(db1.cgx7wslwcmx7.us-east-1.rds.amazonaws.com:3306)/tmp")
+                if err != nil {
+                        panic(err)
+                }
+                return db
+           }
+        func Insert(dept Dept) {
+                db := connect()
+                defer db.Close()
+                sql1 :=  "insert into dept values (" + strconv.Itoa(dept.Deptno) + ",'" + dept.Dname+ "','"+dept.Loc+"')"
+                fmt.Println("sql", sql1)
+                result, err := db.Exec(sql1)
+                if err != nil {
+                        fmt.Println("Error " , err)
+                }
+                result.RowsAffected()
+        }
+        func List() []Dept {
+                db := connect()
+                defer db.Close()
+                res, err := db.Query("SELECT * FROM dept")
+                defer res.Close()
+                if err != nil {
+                        panic(err)
+                }
+                deptslice:=make([]Dept,0)
+                for res.Next() {
+                        dept := Dept{}
+                        res.Scan(&dept.Deptno,&dept.Dname, &dept.Loc)
+                        deptslice= append(deptslice,dept)	
+                }
+                return deptslice
+}
+
+
 
 
 Lab4  - ProjectWithLib -  https://go.dev/doc/tutorial/create-module
