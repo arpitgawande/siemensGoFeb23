@@ -1,0 +1,31 @@
+Lab2 - cmd>go.exe install github.com/aws/aws-lambda-go/cmd/build-lambda-zip@latest
+       in Demo1\main.go
+            package main
+
+            import (
+                    "fmt"
+                    "context"
+                    "github.com/aws/aws-lambda-go/lambda"
+            )
+
+            type MyEvent struct {
+                    Name string `json:"name"`
+            }
+
+            func HandleRequest(ctx context.Context, name MyEvent) (string, error) {
+                    return fmt.Sprintf("Hello %s!", name.Name ), nil
+            }
+
+            func main() {
+                    lambda.Start(HandleRequest)
+            }
+      cmd\Demo1>go mod init demo
+      cmd\Demo1>go mod tidy
+      cmd\Demo1>set GOOS=linux
+      cmd\Demo1>set GOARCH=amd64
+      cmd\Demo1>set CGO_ENABLED=0
+      cmd\Demo1>go build -o main main.go
+      cmd\Demo1>%USERPROFILE%\Go\bin\build-lambda-zip.exe -o main.zip main
+    
+      AWS Console -> create a lambda function - for go -> upload main -> test function locally
+Lab1 - create lambda function using node, with trigger as api gateway
