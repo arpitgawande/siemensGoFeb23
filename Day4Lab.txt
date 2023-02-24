@@ -1,4 +1,4 @@
-Lab 6 - 
+Lab 6 - https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/go/example_code/lambda
        Http Client       - https://pkg.go.dev/net/http
               Write code to invoke  https://3syx10p8k0.execute-api.us-east-1.amazonaws.com/default/Demo2
        Invoke your lambda function
