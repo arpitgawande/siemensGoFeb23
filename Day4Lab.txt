@@ -1,3 +1,57 @@
+Lab5 - 
+       package main
+ 
+       import (
+               "fmt"
+               "github.com/aws/aws-lambda-go/lambda"
+       )
+
+       type MyEvent struct {
+               Name string `json:"username"`
+               Age int     `json:"userage"`
+       }
+
+       type MyResponse struct {
+               Message string `json:"answer:"`
+       }
+
+       func HandleLambdaEvent(event MyEvent) (MyResponse, error) {
+               return MyResponse{Message: fmt.Sprintf("%s is %d years old!", event.Name, event.Age)}, nil
+       }
+
+       func main() {
+               lambda.Start(HandleLambdaEvent)
+       }
+       Configure lambda, api gateway
+       
+       Input JSON
+              <empno>aa1</empno>
+              <ename>Vaishali</ename>
+              <salary>111</salary>
+
+
+Lab4 - Modify API Gateway 
+      create name model
+       models -> create -> namemodel
+              {
+                "$schema" : "http://json-schema.org/draft-04/schema#",
+                "title" : "name",
+                "type" : "object",
+                "properties" : {
+                  "username" : { "type" : "string" }
+                }
+              }
+      Modify Method Request -> request body->
+              content type -App/json -> namemodel
+       Modify integration request ->
+                     Mapping Template -> add for app/json
+                            #set($inputRoot = $input.path('$'))
+                            {
+                              "name" : "$input.path('username')"
+                            }
+        Test -> from Console
+                from Postman
+        
 Lab3 - Customize API Gateway
        Select lambda function and create API Gateway trigger - Test -> check error {"message": "Internal server error"}
        Edit API gateway for current lambda
@@ -20,9 +74,7 @@ Lab3 - Customize API Gateway
                 if successful -> Deploy API 
                                    give any stage name
                         copy url -> test from postman -> Forbiddon
-                Change security -> enable open
-                     test
-       
+                        copy url for post method -> finish testing       
 Lab2 - cmd>go.exe install github.com/aws/aws-lambda-go/cmd/build-lambda-zip@latest
        in Demo1\main.go
             package main
