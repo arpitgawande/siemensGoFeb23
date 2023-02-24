@@ -1,6 +1,8 @@
-Lab 6 - Write code to invoke  https://3syx10p8k0.execute-api.us-east-1.amazonaws.com/default/Demo2
-
-       https://docs.aws.amazon.com/sdk-for-go/api/service/lambda/#example_Lambda_Invoke_shared00
+Lab 6 - 
+       Http Client       - https://pkg.go.dev/net/http
+              Write code to invoke  https://3syx10p8k0.execute-api.us-east-1.amazonaws.com/default/Demo2
+       Invoke your lambda function
+              https://docs.aws.amazon.com/sdk-for-go/api/service/lambda/#example_Lambda_Invoke_shared00
 Lab5 - 
        package main
  
