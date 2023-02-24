@@ -1,8 +1,98 @@
 Lab 6 - https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/go/example_code/lambda
        Http Client       - https://pkg.go.dev/net/http
               Write code to invoke  https://3syx10p8k0.execute-api.us-east-1.amazonaws.com/default/Demo2
+              // invoke api gateway
+              package main
+
+              import (
+                     "bytes"
+                     "fmt"
+                     "io/ioutil"
+                     "net/http"
+              )
+
+              func main() {
+                     httpposturl := "https://3syx10p8k0.execute-api.us-east-1.amazonaws.com/default/Demo2"
+                     fmt.Println("HTTP JSON POST URL:", httpposturl)
+
+                     var jsonData = []byte(`{
+                            "empno": "1",
+                            "ename": "Fands",
+                            "salary":1111
+                     }`)
+                     request, error := http.NewRequest("POST", httpposturl, bytes.NewBuffer(jsonData))
+                     request.Header.Set("Content-Type", "application/json; charset=UTF-8")
+
+                     client := &http.Client{}
+                     response, error := client.Do(request)
+                     if error != nil {
+                            panic(error)
+                     }
+                     defer response.Body.Close()
+
+                     fmt.Println("response Status:", response.Status)
+                     fmt.Println("response Headers:", response.Header)
+                     body, _ := ioutil.ReadAll(response.Body)
+                     fmt.Println("response Body:", string(body))
+
+              }
+
        Invoke your lambda function
               https://docs.aws.amazon.com/sdk-for-go/api/service/lambda/#example_Lambda_Invoke_shared00
+              package main
+
+              import (
+                  "github.com/aws/aws-sdk-go/aws"
+                  "github.com/aws/aws-sdk-go/aws/session"
+                  "github.com/aws/aws-sdk-go/service/lambda"
+
+                  "encoding/json"
+                  "fmt"
+                  "os"
+               //   "strconv"
+              )
+
+              type helloRequest struct {
+                  username     string
+                  userage  int
+              }
+
+              type helloResponse struct {
+                  Message string `json:"message"`
+              }
+
+
+              type helloResponseHeaders struct {
+                  ContentType string `json:"Content-Type"`
+              }
+
+              func main() {
+                  // Create Lambda service client
+                  sess := session.Must(session.NewSessionWithOptions(session.Options{
+                      SharedConfigState: session.SharedConfigEnable,
+                  }))
+
+                  client := lambda.New(sess, &aws.Config{
+                            Region: aws.String("us-west-2")})
+
+                  // Get the 10 most recent items
+                  request := helloRequest{"Simple",20}
+
+                  payload, err := json.Marshal(request)
+                  if err != nil {
+                      fmt.Println("Error marshalling MyGetItemsFunction request")
+                      os.Exit(0)
+                  }
+
+                  result, err := client.Invoke(
+                            &lambda.InvokeInput{FunctionName: aws.String("Demo2"), Payload: payload})
+                  if err != nil {
+                         fmt.Println("Error calling Demo2 FUnction", err)
+                      os.Exit(0)
+                  }
+                     fmt.Println("Result " , result)
+                     fmt.Println("Error ", err)
+              }
 Lab5 - 
        package main
  
