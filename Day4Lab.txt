@@ -1,3 +1,28 @@
+Lab3 - Customize API Gateway
+       Select lambda function and create API Gateway trigger - Test -> check error {"message": "Internal server error"}
+       Edit API gateway for current lambda
+              delete current method - any
+              Create new method -> post 
+                         Integration type   Lambda Function 
+                         Lambda region - 
+                         Lambda Function - Demo1
+               Edit Method Request
+                     Request Body ->Add Model 
+                                   Application/json -> Empty
+               Modify Integration Request 
+                     Mapping Template 
+                            add
+                                   application/json
+                                          {
+                                              "name":"FixedName"
+                                          }
+                Save -Test 
+                if successful -> Deploy API 
+                                   give any stage name
+                        copy url -> test from postman -> Forbiddon
+                Change security -> enable open
+                     test
+       
 Lab2 - cmd>go.exe install github.com/aws/aws-lambda-go/cmd/build-lambda-zip@latest
        in Demo1\main.go
             package main
