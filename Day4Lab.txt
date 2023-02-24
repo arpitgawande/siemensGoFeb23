@@ -25,9 +25,11 @@ Lab5 -
        Configure lambda, api gateway
        
        Input JSON
-              <empno>aa1</empno>
-              <ename>Vaishali</ename>
-              <salary>111</salary>
+              {
+              "empno" : "10",
+              "ename":"Vaishali",
+              "salary":111
+              }
 
 
 Lab4 - Modify API Gateway 
