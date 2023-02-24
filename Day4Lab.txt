@@ -53,8 +53,8 @@ Lab 6 - https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/go/example_cod
               )
 
               type helloRequest struct {
-                  username     string
-                  userage  int
+                  Username     string
+                  Userage  int
               }
 
               type helloResponse struct {
